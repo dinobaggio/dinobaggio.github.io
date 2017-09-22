@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link href="_asset/font_awesome/css/font-awesome.css" rel="stylesheet" />
+        <link href="_asset/w3css.css" rel="stylesheet" />
+        <link href="_asset/w3-theme-light-blue.css" rel="stylesheet" />
+        <style>
+            .index {
+                height : 530px;
+                overflow-x : auto;
+            }
+        </style>
+        <script src="_asset/js/jquery-3.2.1.js"></script>
+        <script>
+            // Accordion
+            function myFunction(id) {
+                var x = document.getElementById(id);
+                if (x.className.indexOf("w3-show") == -1) {
+                    x.className += " w3-show";
+                    x.previousElementSibling.className += " w3-theme-d1";
+                } else { 
+                    x.className = x.className.replace("w3-show", "");
+                    x.previousElementSibling.className = 
+                    x.previousElementSibling.className.replace(" w3-theme-d1", "");
+                }
+            }
+            // Used to toggle the menu on smaller screens when clicking on the menu button
+            function openNav() {
+                var x = document.getElementById("navDemo");
+                if (x.className.indexOf("w3-show") == -1) {
+                    x.className += " w3-show";
+                } else { 
+                    x.className = x.className.replace(" w3-show", "");
+                }
+            }
+            
+            $(document).ready(function(){
+                $("#buttonPersonal").click(function(){
+                    $("#personal").show();
+                    $("#mySkill").hide();
+                    $("#contact").hide();
+                    $("#buttonPersonal").removeClass("w3-theme-d3");
+                    $("#buttonPersonal").addClass("w3-theme-d5");
+                    $("#buttonContact").removeClass("w3-theme-d5");
+                    $("#buttonContact").addClass("w3-theme-d3");
+                    $("#buttonSkill").removeClass("w3-theme-d5");
+                    $("#buttonSkill").addClass("w3-theme-d3");
+                    
+                });
+                $("#buttonSkill").click(function(){
+                    $("#personal").hide();
+                    $("#mySkill").show();
+                    $("#contact").hide();
+                    $("#buttonPersonal").removeClass("w3-theme-d5");
+                    $("#buttonPersonal").addClass("w3-theme-d3");
+                    $("#buttonContact").removeClass("w3-theme-d5");
+                    $("#buttonContact").addClass("w3-theme-d3");
+                    $("#buttonSkill").removeClass("w3-theme-d3");
+                    $("#buttonSkill").addClass("w3-theme-d5");
+
+                });
+                $("#buttonContact").click(function(){
+                    $("#personal").hide();
+                    $("#mySkill").hide();
+                    $("#contact").show();
+                    $("#buttonPersonal").removeClass("w3-theme-d5");
+                    $("#buttonPersonal").addClass("w3-theme-d3");
+                    $("#buttonContact").removeClass("w3-theme-d3");
+                    $("#buttonContact").addClass("w3-theme-d5");
+                    $("#buttonSkill").removeClass("w3-theme-d5");
+                    $("#buttonSkill").addClass("w3-theme-d3");
+                });
+            });
+        </script>
+    </head>
+    <style>
+    html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
+    </style>
+    <body class="w3-theme-d5">
+        <!-- Navbar -->
+        <!-- Navbar on small screens -->
+
+        <!-- Page Container -->
+        <div class="w3-container w3-content" style="max-width:1400px;margin-top:10px">    
+        <!-- The Grid -->
+        <div class="w3-row">
+            <!-- Left Column -->
+            <div class="w3-col m3">
+            <!-- Profile -->
+            <div class="w3-card-2 w3-round w3-white">
+                <div class="w3-container">
+                <h4 class="w3-center">Dino Baggio</h4>
+                <p class="w3-center"><img src="_asset/gambar/dinobaggio1x1.jpg" class="w3-circle" style="height:202px;width:202px" alt="Avatar"></p>
+                <hr>
+                <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Programmer, Back-end</p>
+                <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> Indonesia, Jakarta</p>
+                <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> November 27, 1995</p>
+                </div>
+            </div>
+            <br>
+            
+            <!-- Accordion -->
+            
+            <!-- Interests --> 
+            <div class="w3-card-2 w3-round w3-white w3-hide-small">
+                <div class="w3-container">
+                <p>Skill</p>
+                <p>
+                    <span class="w3-tag w3-small w3-theme-d5">PHP</span>
+                    <span class="w3-tag w3-small w3-theme-d4">Javascript</span>
+                    <span class="w3-tag w3-small w3-theme-d3">jQuery</span>
+                    <span class="w3-tag w3-small w3-theme-d2">Codeigniter</span>
+                    <span class="w3-tag w3-small w3-theme-d1">Angular</span>
+                    <span class="w3-tag w3-small w3-theme">HTML</span>
+                    <span class="w3-tag w3-small w3-theme-l1">CSS</span>
+                    <span class="w3-tag w3-small w3-theme-l2">w3css</span>
+                    <!-- 
+                    <span class="w3-tag w3-small w3-theme-l3">Design</span>
+                    <span class="w3-tag w3-small w3-theme-l4">Art</span>
+                    <span class="w3-tag w3-small w3-theme-l5">Photos</span> -->
+                </p>
+                </div>
+            </div>
+            <br>
+            
+            <!-- Alert Box -->
+            <!-- <div class="w3-container w3-display-container w3-round w3-theme-l4 w3-border w3-theme-border w3-margin-bottom w3-hide-small">
+                <span onclick="this.parentElement.style.display='none'" class="w3-button w3-theme-l3 w3-display-topright">
+                <i class="fa fa-remove"></i>
+                </span>
+                <p><strong>Hey!</strong></p>
+                <p>People are looking at your profile. Find out who.</p>
+            </div> -->
+            
+            <!-- End Left Column -->
+            </div>
+            
+            <!-- Middle Column -->
+            <div class="w3-col m7">
+            
+            <div class="w3-row-padding">
+                <div class="w3-col m12">
+                <div class="w3-card-2 w3-round w3-white">
+                    <div class="w3-container w3-padding">
+                    <button id="buttonPersonal" type="button" class="w3-button w3-theme-d5 w3-round"><i class="fa fa-user"></i> Personal</button>
+                    <button id="buttonSkill" type="button" class="w3-button w3-theme-d3 w3-round"><i class="fa fa-wrench"></i> About My Skill</button>
+                    <button id="buttonContact" type="button" class="w3-button w3-theme-d3 w3-round"><i class="fa fa-address-book"></i> Contact</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+            
+                <div class="w3-container w3-card-2 w3-white w3-round w3-margin index">
+                    <br/>
+                    <!-- Personal -->
+                    <div id="personal" style="display:">
+                        <div class="w3-card-2 w3-round w3-theme-d4">
+                            <div class="w3-container w3-padding-bottom w3-opacity">
+                                <h4>Full Name</h4>
+                                <p class="">Dino Baggio</p>
+                                <hr/>
+                                <h4>Gender</h4>
+                                <p>Male</p>
+                                <hr/>
+                                <h4>Religion</h4>
+                                <p>Moslem</p>
+                                <hr/>
+                                <h4>Marital Status</h4>
+                                <p>Single</p>
+                            </div>
+                        </div><br/>
+                        <div class="w3-card-2 w3-round w3-theme-d4">
+                            <div class="w3-container w3-padding-bottom w3-opacity-min">
+                                <h4>About Me</h4>
+                                <p class="">My name is <b>Dino baggio</b>
+                                I am a engineering student of informatics perbanas,
+                                I am a final semester student, I am currently preparing a skripsi <b>(for now)</b>.
+                                in my opinion, I'm good at <b>algorithms</b>, and also a bit good at the <b>analysis</b>,
+                                I understand <b>english</b>, I learn the <b>programming</b> language from english site which is also to train my english <b>skill</b>, 
+                                I like english, but I <b>can not speak english</b></p>
+                            </div>
+                        </div><br/>
+                        <span class="w3-right w3-opacity">Last Update Sep-22-2017</span><br/><br/>
+                    </div>
+                    <!-- mySkill -->
+                    <div id="mySkill" style="display:none;">
+                        <div class="w3-card-2 w3-round w3-theme-d4">
+                            <div class="w3-container w3-padding-bottom w3-opacity">
+                                <h4>PHP</h4>
+                                <p class="">Medium</p>
+                                <hr/>
+                                <h4>Javascript</h4>
+                                <p>Medium</p>
+                                <hr/>
+                                <h4>jQuery</h4>
+                                <p>Medium</p>
+                                <hr/>
+                                <h4>Codeigniter</h4>
+                                <p>Beginner</p>
+                                <hr/>
+                                <h4>Angular</h4>
+                                <p>Learned Once</p>
+                            </div>
+                        </div><br/>
+                        <div class="w3-card-2 w3-round w3-theme-d4">
+                            <div class="w3-container w3-padding-bottom w3-opacity-min">
+                                <h4>About My Skill</h4>
+                                <p class="">My skill is core and native php, core and native javascript, native jQuery, native javascript-php ajax concept, native jQuery-php ajax concept,
+                                MySQL CRUD, PDO CRUD, and then know basic object-based programming (OOP),
+                                if need to use a framework, I can learn it for about a 1 or 2 weeks 
+                                if I learn it really deep, and then if there are any mentors, may be I can learn the required framework faster,
+                                and now I am learning Codeigniter, I've once studied Angular, but when I study angular, 
+                                I have not mastered the core of javascript, then I stop learning Angular, and learn javascript core via w3schools,
+                                here my application web with native JavaScript-PHP ajax concept (https://dinobaggio.000webhostapp.com/)
+                                </p>
+                            </div>
+                        </div><br/>
+                        <span class="w3-right w3-opacity">Last Update Sep-22-2017</span><br/><br/>
+                    </div>
+
+                    <div id="contact" style="display:none;">
+                        <div class="w3-card-2 w3-round w3-theme-d4">
+                            <div class="w3-container w3-padding-bottom w3-opacity">
+                                <h4>Phone Number &amp; WA</h4>
+                                <p class="">+62 877-8653-0117</p>
+                                <hr/>
+                                <h4>Email</h4>
+                                <p>dino.baggio007@gmail.com</p>
+                                <hr/>
+                                <h4>Line</h4>
+                                <p>dinobaggo</p>
+                                <hr/>
+                                <h4>Website</h4>
+                                <p>dinobaggio.000webhostapp.com</p>
+                                <hr/>
+                                <h4>Address</h4>
+                                <p>Jl. Swadaya no.06, RT/RW 005/007, Kel. Duren Sawit, Kec. Duren Sawit<br/>
+                                Jakarta Timur</p>
+                            </div>
+                        </div><br/>
+                        <span class="w3-right w3-opacity">Last Update Sep-22-2017</span><br/><br/>
+                    </div>
+                </div>
+            
+            
+            <!-- End Middle Column -->
+            </div>
+            
+            <!-- Right Column -->
+            <div class="w3-col m2">
+            <div class="w3-card-2 w3-round w3-white w3-center">
+                <div class="w3-container">
+                <p>Upcoming Events:</p>
+                <img src="/w3images/forest.jpg" alt="Forest" style="width:100%;">
+                <p><strong>Holiday</strong></p>
+                <p>Friday 15:00</p>
+                <p><button class="w3-button w3-block w3-theme-l4">Info</button></p>
+                </div>
+            </div>
+            <br>
+            <!-- End Right Column -->
+            </div>
+            
+        <!-- End Grid -->
+        </div>
+        
+        <!-- End Page Container -->
+        </div>
+        <br>
+
+        <!-- Footer -->
+        <footer class="w3-container w3-theme-d5">
+        <p>Default Template by <a href="https://www.w3schools.com/w3css/tryw3css_templates_social.htm" target="_blank">w3.css</a></p>
+        </footer>
+
+    </body>
+</html>
