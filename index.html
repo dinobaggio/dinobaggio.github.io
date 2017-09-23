@@ -8,8 +8,8 @@
         <link href="https://cdn.rawgit.com/dinobaggio/dinobaggio.github.io/85ba2aef/_asset/w3css.css" rel="stylesheet" />
         <link href="https://cdn.rawgit.com/dinobaggio/dinobaggio.github.io/85ba2aef/_asset/w3-theme-light-blue.css" rel="stylesheet" />
         <link href="https://cdn.rawgit.com/dinobaggio/dinobaggio.github.io/85ba2aef/_asset/css/css_sendiri.css" rel="stylesheet" />
-        <script src="https://cdn.rawgit.com/dinobaggio/dinobaggio.github.io/beb46137/_asset/js/jquery-3.2.1.js"></script>
-        <script src="https://cdn.rawgit.com/dinobaggio/dinobaggio.github.io/85ba2aef/_asset/js/homemade.js"></script>
+        <script src="https://cdn.rawgit.com/dinobaggio/dinobaggio.github.io/beb46137/_asset/js/jquery-3.2.1.js">//jQuqry 3 2 1</script>
+        <script src="https://cdn.rawgit.com/dinobaggio/dinobaggio.github.io/c1b070d0/_asset/js/homemade.js">//homemade</script>
     </head>
     <style>
     html,body,h1,h2,h3,h4,h5 {font-family: "Open Sans", sans-serif}
@@ -25,14 +25,14 @@
             <!-- Left Column -->
             <div class="w3-col m3">
             <!-- Profile -->
-            <div class="w3-card-2 w3-round w3-white">
+            <div class="w3-card-2 w3-round w3-white" id="profil" style="display:none;">
                 <div class="w3-container">
-                <h4 class="w3-center">Dino Baggio</h4>
-                <p class="w3-center"><img src="https://cdn.rawgit.com/dinobaggio/dinobaggio.github.io/303df203/_asset/gambar/dinobaggio.jpg" class="w3-circle" style="height:202px;width:202px" alt="Avatar"></p>
-                <hr>
-                <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Programmer, Back-end</p>
-                <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> Indonesia, Jakarta</p>
-                <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> November 27, 1995</p>
+                    <h4 class="w3-center">Dino Baggio</h4>
+                    <p class="w3-center"><img src="https://cdn.rawgit.com/dinobaggio/dinobaggio.github.io/303df203/_asset/gambar/dinobaggio.jpg" class="w3-circle" id="fotoProfil" style="display:none;height:202px;width:202px" alt="Avatar"></p>
+                    <hr>
+                    <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Programmer, Back-end</p>
+                    <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> Indonesia, Jakarta</p>
+                    <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> November 27, 1995</p>
                 </div>
             </div>
             <br>
@@ -40,23 +40,23 @@
             <!-- Accordion -->
             
             <!-- Interests --> 
-            <div class="w3-card-2 w3-round w3-white w3-hide-small">
+            <div class="w3-card-2 w3-round w3-white w3-hide-small" id="skill" style="display:none">
                 <div class="w3-container">
-                <p>Skill</p>
-                <p>
-                    <span class="w3-tag w3-small w3-theme-d5">PHP</span>
-                    <span class="w3-tag w3-small w3-theme-d4">Javascript</span>
-                    <span class="w3-tag w3-small w3-theme-d3">jQuery</span>
-                    <span class="w3-tag w3-small w3-theme-d2">Codeigniter</span>
-                    <span class="w3-tag w3-small w3-theme-d1">Angular</span>
-                    <span class="w3-tag w3-small w3-theme">HTML</span>
-                    <span class="w3-tag w3-small w3-theme-l1">CSS</span>
-                    <span class="w3-tag w3-small w3-theme-l2">w3css</span>
-                    <!-- 
-                    <span class="w3-tag w3-small w3-theme-l3">Design</span>
-                    <span class="w3-tag w3-small w3-theme-l4">Art</span>
-                    <span class="w3-tag w3-small w3-theme-l5">Photos</span> -->
-                </p>
+                    <p>Skill</p>
+                    <p>
+                        <span class="w3-tag w3-small w3-theme-d5">PHP</span>
+                        <span class="w3-tag w3-small w3-theme-d4">Javascript</span>
+                        <span class="w3-tag w3-small w3-theme-d3">jQuery</span>
+                        <span class="w3-tag w3-small w3-theme-d2">Codeigniter</span>
+                        <span class="w3-tag w3-small w3-theme-d1">Angular</span>
+                        <span class="w3-tag w3-small w3-theme">HTML</span>
+                        <span class="w3-tag w3-small w3-theme-l1">CSS</span>
+                        <span class="w3-tag w3-small w3-theme-l2">w3css</span>
+                        <!-- 
+                        <span class="w3-tag w3-small w3-theme-l3">Design</span>
+                        <span class="w3-tag w3-small w3-theme-l4">Art</span>
+                        <span class="w3-tag w3-small w3-theme-l5">Photos</span> -->
+                    </p>
                 </div>
             </div>
             <br>
@@ -76,22 +76,22 @@
             <!-- Middle Column -->
             <div class="w3-col m7">
             
-            <div class="w3-row-padding">
+            <div class="w3-row-padding" id="tombol" style="display:none">
                 <div class="w3-col m12">
-                <div class="w3-card-2 w3-round w3-white">
-                    <div class="w3-container w3-padding">
-                    <button id="buttonPersonal" type="button" class="w3-button w3-theme-d5 w3-round"><i class="fa fa-user"></i> Personal</button>
-                    <button id="buttonSkill" type="button" class="w3-button w3-theme-d3 w3-round"><i class="fa fa-wrench"></i> About My Skill</button>
-                    <button id="buttonContact" type="button" class="w3-button w3-theme-d3 w3-round"><i class="fa fa-address-book"></i> Contact</button>
+                    <div class="w3-card-2 w3-round w3-white">
+                        <div class="w3-container w3-padding" id="isiTombol" style="display:none" >
+                            <button id="buttonPersonal" type="button" class="w3-button w3-theme-d3 w3-round"><i class="fa fa-user"></i> Personal</button>
+                            <button id="buttonSkill" type="button" class="w3-button w3-theme-d3 w3-round"><i class="fa fa-wrench"></i> About My Skill</button>
+                            <button id="buttonContact" type="button" class="w3-button w3-theme-d3 w3-round"><i class="fa fa-address-book"></i> Contact</button>
+                        </div>
                     </div>
-                </div>
                 </div>
             </div>
             
-                <div class="w3-container w3-card-2 w3-white w3-round w3-margin index">
+                <div class="w3-container w3-card-2 w3-white w3-round w3-margin index" id="isi" style="display:none">
                     <br/>
                     <!-- Personal -->
-                    <div id="personal" style="display:">
+                    <div id="personal" style="display:none">
                         <div class="w3-card-2 w3-round w3-theme-d4">
                             <div class="w3-container w3-padding-bottom w3-opacity">
                                 <h4>Full Name</h4>
@@ -203,7 +203,7 @@
         <br>
 
         <!-- Footer -->
-        <footer class="w3-container w3-theme-d5">
+        <footer class="w3-container w3-theme-d5" id="footer" style="display:none">
         <p>Default Template by <a href="https://www.w3schools.com/w3css/tryw3css_templates_social.htm" target="_blank">w3.css</a></p>
         </footer>
 
