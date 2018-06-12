@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Infinite Scroll</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+	<script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<style>
+		body {
+			background-color: black;
+		}
+		.element {
+			margin : 10px;
+			background-color : blanchedalmond;
+			min-height : 200px;
+			width: 50%;
+		}
+		.imagex {
+			margin: 5px;
+		}
+		.App-logo {
+			animation: App-logo-spin infinite 1s linear;
+			height: 80px;
+		}
+
+		#index {
+			margin-left : 32%;
+		}
+
+		@keyframes App-logo-spin {
+			from { transform: rotate(0deg); }
+			to { transform: rotate(360deg); }
+		}
+
+	</style>
+</head>
+<body>
+	
+	<div id="index" class="w3-center"></div>
+	<div class="w3-center" style="height: 100px;">
+		<img id="loading" class="w3-center App-logo" style="display:none" src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/100px-React-icon.svg.png" alt="loading...">
+	</div>
+	
+<script>
+	let indexs = document.getElementById('index');
+	let r = React;
+	let element = [];
+	let elementNum = 1;
+	let br = r.createElement('br',null,null);
+
+	let interval = 0;
+	let page = 1;
+	let load = 'load';
+	let loading = document.getElementById('loading');
+	let clientScreen = document.documentElement.clientHeight;
+
+	$.get('https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json', result => {
+		let obj = JSON.parse(result).pokemon;
+		let perPage = 10;
+		let lengthData = obj.length;
+		let totalPage = Math.ceil(lengthData/perPage);
+		init(perPage, totalPage, obj)
+		page = 2;
+
+		window.onscroll = () => {
+			let docScrollHeight = document.body.scrollHeight;
+			let elementScrollTop = document.documentElement.scrollTop;
+			let persen = ((clientScreen+elementScrollTop)/docScrollHeight) * 100;
+			let limit = page * perPage;
+			let index = limit - perPage;
+			let paramLoad = limit-index;
+
+			console.log(docScrollHeight, elementScrollTop, persen, page);
+			if (persen >= 100 && load == 'load' && page <= totalPage) {
+				loading.style.display = '';
+				load = 0;
+				for (let i=index;i<limit;i++) {
+					if (page > totalPage) {
+						console.log('page greater than total page')
+						break
+					} else if (obj[i] == undefined) {
+						loading.style.display = 'none';
+						break;
+					}
+					interval++
+					setTimeout(() => {
+						console.log(obj[i]);
+						console.log(i)
+						let types = obj[i].type;
+						let type = [];
+						let weaknesses = obj[i].weaknesses;
+						let weaknes = [];
+						let nextEvolution = obj[i].next_evolution;
+						let nextEvo = [];
+						let prevEvolution = obj[i].prev_evolution;
+						let prevEvo = [];
+
+						if (prevEvolution != undefined) {
+							for (let j=0;j<prevEvolution.length;j++) {
+								let koma = ', ';
+								if (j == prevEvolution.length-1) koma = '';
+								let el = r.createElement('span', null, ' '+prevEvolution[j].name+'#'+prevEvolution[j].num+koma)
+								prevEvo.push(el);
+							}
+						} else {
+							prevEvo = [' First']
+						}
+
+						if (nextEvolution != undefined) {
+							for (let j=0;j<nextEvolution.length;j++) {
+								let koma = ', ';
+								if (j == nextEvolution.length-1) koma = '';
+								let el = r.createElement('span', null, ' '+nextEvolution[j].name+'#'+nextEvolution[j].num+koma)
+								nextEvo.push(el);
+							}
+						} else {
+							nextEvo = [' Max']
+						}
+						for (let j=0;j<types.length;j++) {
+							let koma = ', ';
+							if (j == types.length-1) koma = '';
+							let el = r.createElement('span', null, ' '+types[j]+koma)
+							type.push(el);
+						}
+						for (let j=0;j<weaknesses.length;j++) {
+							let koma = ', ';
+							if (j == weaknesses.length-1) koma = '';
+							let el = r.createElement('span', null, ' '+weaknesses[j]+koma)
+							weaknes.push(el);
+						}
+						console.log(weaknes)
+						let a = r.createElement(
+							'div', 
+							{className:'element w3-animate-top'},
+							r.createElement('h3', null, r.createElement('b', null, obj[i].name), r.createElement('span', null, ' #'+obj[i].num)),
+							r.createElement('small',null,'Height: '+obj[i].height),
+							br,
+							r.createElement('small',null,'Weight: '+obj[i].weight),
+							r.createElement(
+								'div',
+								{className:'imagex'},
+								r.createElement(
+									'img',
+									{src: obj[i].img},
+									null
+								), 
+							),
+							r.createElement(
+								'div',
+								null,
+								r.createElement(
+									'b',
+									null,
+									'Type :'
+								), ...type
+							),
+							r.createElement(
+								'div',
+								null,
+								r.createElement(
+									'b',
+									null,
+									'Weaknesses :'
+								), ...weaknes
+							),
+							r.createElement(
+								'div',
+								null,
+								r.createElement(
+									'b',
+									null,
+									'Prev Evo :'
+								), ...prevEvo
+							),
+							r.createElement(
+								'div',
+								null,
+								r.createElement(
+									'b',
+									null,
+									'Next Evo :'
+								), ...nextEvo
+							)
+						);
+						elementNum++
+						element.push(a);
+						ReactDOM.render(r.createElement('div', null, ...element), indexs);
+						load++
+						if (load == paramLoad) {
+							loading.style.display = 'none';
+							load = 'load'
+							interval = 0;
+							page++
+						}
+					}, interval*200)
+				}
+				
+			}
+			
+		}
+	})
+
+	
+	
+
+
+	
+	ReactDOM.render(r.createElement('div', null, ...element), index);
+	function init (perPage, totalPage, obj) {
+		loading.style.display = '';
+		let limit = page * perPage;
+		let index = limit - perPage;
+		let paramLoad = limit-index;
+		load = 0;
+		for (let i=index;i<limit;i++) {
+			if (page > totalPage) {
+				console.log('page greater than total page')
+				break
+			} else if (obj[i] == undefined) {
+				break;
+			}
+			interval++
+			setTimeout(() => {
+				console.log(obj[i]);
+				console.log(i)
+				let types = obj[i].type;
+				let type = [];
+				let weaknesses = obj[i].weaknesses;
+				let weaknes = [];
+				let nextEvolution = obj[i].next_evolution;
+				let nextEvo = [];
+				let prevEvolution = obj[i].prev_evolution;
+				let prevEvo = [];
+
+				if (prevEvolution != undefined) {
+					for (let j=0;j<prevEvolution.length;j++) {
+						let koma = ', ';
+						if (j == prevEvolution.length-1) koma = '';
+						let el = r.createElement('span', null, ' '+prevEvolution[j].name+'#'+prevEvolution[j].num+koma)
+						prevEvo.push(el);
+					}
+				} else {
+					prevEvo = [' First']
+				}
+
+				if (nextEvolution != undefined) {
+					for (let j=0;j<nextEvolution.length;j++) {
+						let koma = ', ';
+						if (j == nextEvolution.length-1) koma = '';
+						let el = r.createElement('span', null, ' '+nextEvolution[j].name+'#'+nextEvolution[j].num+koma)
+						nextEvo.push(el);
+					}
+				} else {
+					nextEvo = [' Max']
+				}
+				for (let j=0;j<types.length;j++) {
+					let koma = ', ';
+					if (j == types.length-1) koma = '';
+					let el = r.createElement('span', null, ' '+types[j]+koma)
+					type.push(el);
+				}
+				for (let j=0;j<weaknesses.length;j++) {
+					let koma = ', ';
+					if (j == weaknesses.length-1) koma = '';
+					let el = r.createElement('span', null, ' '+weaknesses[j]+koma)
+					weaknes.push(el);
+				}
+				console.log(weaknes)
+				let a = r.createElement(
+					'div', 
+					{className:'element w3-animate-top'},
+					r.createElement('h3', null, r.createElement('b', null, obj[i].name), r.createElement('span', null, ' #'+obj[i].num)),
+					r.createElement('small',null,'Height: '+obj[i].height),
+					br,
+					r.createElement('small',null,'Weight: '+obj[i].weight),
+					r.createElement(
+						'div',
+						{className:'imagex'},
+						r.createElement(
+							'img',
+							{src: obj[i].img},
+							null
+						), 
+					),
+					r.createElement(
+						'div',
+						null,
+						r.createElement(
+							'b',
+							null,
+							'Type :'
+						), ...type
+					),
+					r.createElement(
+						'div',
+						null,
+						r.createElement(
+							'b',
+							null,
+							'Weaknesses :'
+						), ...weaknes
+					),
+					r.createElement(
+						'div',
+						null,
+						r.createElement(
+							'b',
+							null,
+							'Prev Evo :'
+						), ...prevEvo
+					),
+					r.createElement(
+						'div',
+						null,
+						r.createElement(
+							'b',
+							null,
+							'Next Evo :'
+						), ...nextEvo
+					)
+				);
+				elementNum++
+				element.push(a);
+				ReactDOM.render(r.createElement('div', null, ...element), indexs);
+				load++
+				if (load == paramLoad) {
+					loading.style.display = 'none';
+					interval = 0;
+					load = 'load';
+				}
+			}, interval*200)
+		}
+	}
+</script>
+
+
+</body>
+</html>
