@@ -1,9 +1,7 @@
 /** @type {import('tailwindcss').Config} */
 export default {
     content: [
-      "./src/*/.blade.php",
-      "./src/*/.js",
-      "./src/*/.vue"
+      "./src/**/*.{vue,js}"
     ],
     colors: [],
     theme: {
@@ -17,7 +15,18 @@ export default {
       fontFamily: {
         'body': ["Poppins"],
         'sans': ["Poppins"]
-      }
+      },
+      fontSize: {
+        h1: '3.815rem',
+        h2: '3.052rem',
+        h3: '2.441rem',
+        h4: '1.953rem',
+        h5: '1.563rem',
+        h6: '1.25rem',
+        p: '1rem',
+        small: '0.8rem',
+        xsmall: '0.64rem'
+      },
     },
     plugins: [],
   }
