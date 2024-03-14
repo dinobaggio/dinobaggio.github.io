@@ -11,5 +11,5 @@ body {
 }
 
 .container-page {
-    @apply container mx-auto px-36 py-4;
+    @apply container mx-auto 2xl:px-36 px-8 py-4;
 }
