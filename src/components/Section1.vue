@@ -1,20 +1,34 @@
-<script setup></script>
+<script setup>
+function goToElement(elementId) {
+    var element = document.getElementById(elementId);
+    if(element) {
+        element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+        console.error('Elemen dengan ID ' + elementId + ' tidak ditemukan.');
+    }
+}
+</script>
 
 <template>
     <div class="container-page">
-        <div class="flex items-center gap-4">
+        <div class="flex items-center justify-between gap-4">
             <!-- <div class="logo" /><span class="font-bold">Dino Baggio</span> -->
+            <div />
+            <div class="flex items-center gap-4 text-h6">
+              <div class="cursor-pointer hover:underline" v-on:click="goToElement('experience')">Experience</div>
+              <div class="cursor-pointer hover:underline" v-on:click="goToElement('skill')">Skill</div>
+              <div class="cursor-pointer hover:underline" v-on:click="goToElement('contact')">Contact</div>
+            </div>
         </div>
 
-        <div class="mt-8 flex items-center gap-4">
-            <div class="text-h6 text-justify" style="width: 900px;">
-                <div class="logo-ava mx-auto" />
-                <p class="text-h3 font-bold text-center">Dino Baggio</p>
-                <p class="text-h5 font-bold text-center mt-4">Software Engineer</p>
-                <p>I’m software engineer with 5 years experience. Mostly engaged in web development, and some of the fields pursued are in backend and frontend development.</p>
-                <p class="text-small mt-4">Roles: Software Engineer, Fullstack Developer, Backend Developer, Frontend Developer</p>
+        <div class="text-h6 mt-8 pb-8">
+            <div class="logo-ava mx-auto" />
+            <p class="text-h3 font-bold text-center">Dino Baggio</p>
+            <div class="2xl:w-2/3 xl:w-2/3 lg:w-2/3 mx-auto">
+              <p class="mt-4 text-justify">I’m software engineer with 5 years experience. Mostly engaged in web development, and some of the fields pursued are in backend and frontend development.</p>
+              <p class="mt-4"><b>Roles:</b> Software Engineer, Fullstack Developer, Backend Developer, Frontend Developer.</p>
+              <p class="mt-1"><b>Soft skill:</b> Fast learner, Work faster.</p>
             </div>
-            <div class="comp-vektor" />
         </div>
     </div>
 </template>

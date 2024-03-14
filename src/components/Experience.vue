@@ -7,12 +7,14 @@ import Kominfo from './experience/Kominfo.vue';
 
 <template>
     <div class="section">
-        <div class="container-page">
-            <div class="text-h3 font-bold">Experience</div>
-            <Badr />
-            <Nusantech />
-            <Seneakershoot />
-            <Kominfo />
+        <div id="experience" class="container-page">
+            <div class="text-h3 text-center font-bold">Experience</div>
+            <div class="mt-12">
+                <Badr />
+                <Nusantech />
+                <Seneakershoot />
+                <Kominfo />
+            </div>
         </div>
     </div>
 </template>

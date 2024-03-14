@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-    <div class="mt-8 flex items-center gap-8 border-b-4 pb-4">
+    <div class="mt-8 flex items-center gap-8 pb-4">
         <div>
             <div class="kominfo-logo" />
             <div class="flex mt-8">

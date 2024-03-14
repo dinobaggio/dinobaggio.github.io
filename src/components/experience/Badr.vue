@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-    <div class="mt-8 flex items-center gap-8 border-b-4 pb-4">
+    <div class="flex items-center gap-8 border-b-4 pb-4">
         <!-- <div class="comp2-vektor rounded-md" /> -->
         <div>
             <div class="badr-logo" />
@@ -22,7 +22,8 @@
                 <div class="mt-3">
                     <b>Tech Stack</b>: PHP, Laravel, NodeJS, JavaScript, ExpressJS, Sequelize, ReactJS, VueJS, Golang, Gin, Gorm, Python, NextJS, MySQL, MongoDB, ClickHouse, Redis, RabbitMQ, Minio, Docker
                 </div>
-                <div class="text-darkblue cursor-pointer mt-2">View portofolio >></div>
+                <div class="mt-3" />
+                <router-link to="/badr-portofolio" class="text-darkblue cursor-pointer hover:underline">View portofolio >></router-link>
             </div>
         </div>
     </div>
