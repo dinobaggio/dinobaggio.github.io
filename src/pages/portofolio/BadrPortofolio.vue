@@ -1,12 +1,18 @@
 <script setup>
+function goToTop() {
+    window.scrollTo({ top: 0 });
+}
+
+goToTop()
 </script>
 
 <template>
   <div class="container-page">
-    <router-link to="/" class="cursor-pointer mt-2 hover:underline"><< Back</router-link>
+    <router-link to="/" class="cursor-pointer mt-2 hover:underline text-h6"><< Back</router-link>
     <div class="text-h3 mt-4">Badr Portofolio</div>
     <div class="mt-4" />
     <div>
+      <img src="/undp-logo.webp" width="120px" />
       <div class="text-h5">SMILE Indonesia</div>
       <p>SMILE is an electronic immunization logistics monitoring system which is an application innovation to support the Ministry of Health of the Republic of Indonesia for real‐time supply chain and cold chain management. Application development and operations are supported by UNDP Indonesia.</p>
       <p class="mt-2">The work includes creating several backend features, there is also the creation of backend features including summary reports and Covid 19 reports, and also creating fontends for several landing pages and dashboard report pages.</p>
