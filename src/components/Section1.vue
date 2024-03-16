@@ -21,10 +21,10 @@ function goToElement(elementId) {
             </div>
         </div>
 
-        <div class="text-h6 mt-8 pb-8">
+        <div class="text-h6 mt-24 pb-24">
             <div class="logo-ava mx-auto" />
             <p class="text-h3 font-bold text-center">Dino Baggio</p>
-            <div class="2xl:w-2/3 xl:w-2/3 lg:w-2/3 mx-auto">
+            <div class="2xl:w-2/3 xl:w-2/3 lg:w-2/3 mx-auto mt-16">
               <p class="mt-4 text-justify">I’m software engineer with 5 years experience. Mostly engaged in web development, and some of the fields pursued are in backend and frontend development.</p>
               <p class="mt-4"><b>Roles:</b> Software Engineer, Fullstack Developer, Backend Developer, Frontend Developer.</p>
               <p class="mt-1"><b>Soft skill:</b> Fast learner, Work faster.</p>

@@ -22,8 +22,9 @@
                 <div class="mt-3">
                     <b>Tech Stack</b>: PHP, Laravel, NodeJS, JavaScript, ExpressJS, Sequelize, ReactJS, VueJS, Golang, Gin, Gorm, Python, NextJS, MySQL, MongoDB, ClickHouse, Redis, RabbitMQ, Minio, Docker
                 </div>
-                <div class="mt-3" />
-                <router-link to="/badr-portofolio" class="text-darkblue cursor-pointer hover:underline">View portofolio >></router-link>
+                <div class="mt-3">
+                    <router-link to="/badr-portofolio" class="text-darkblue cursor-pointer hover:underline">View portofolio >></router-link>
+                </div>
             </div>
         </div>
     </div>
