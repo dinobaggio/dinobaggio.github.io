@@ -20,6 +20,9 @@
                 <div class="text-h7 mt-3">
                     <b>Tech Stack</b>: PHP, Laravel, NodeJS, ExpressJS, Sequelize, ReactJS, JavaScript, MySQL, PostgreSQL, MongoDB
                 </div>
+                <div class="mt-3">
+                    <router-link to="/nusantech-portofolio" class="text-darkblue cursor-pointer hover:underline">View portofolio >></router-link>
+                </div>
             </div>
         </div>
         <!-- <div class="comp2-vektor rounded-md" /> -->
