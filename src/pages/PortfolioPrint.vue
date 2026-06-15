@@ -295,7 +295,7 @@ const kominfoProjects = [
                         <h1 class="doc-name">Dino Baggio</h1>
                         <p class="doc-sub">Software Engineer · Fullstack Developer · Prompt Engineer</p>
                         <p class="doc-sub" style="margin-top:2px; font-size:0.72rem; opacity:0.7;">
-                            dbaggio111@gmail.com &nbsp;·&nbsp; linkedin.com/in/dino-baggio-877686143
+                            dbaggio111@gmail.com &nbsp;·&nbsp; https://dinobaggio.github.io &nbsp;·&nbsp; linkedin.com/in/dino-baggio-877686143
                         </p>
                     </div>
                 </div>
