@@ -6,6 +6,69 @@ function printPage() {
     window.print();
 }
 
+const becourseCategories = [
+    {
+        title: 'Authentication & User Management',
+        badge: null,
+        items: [
+            { area: 'Auth System', work: 'Email/password registration with email verification, Google OAuth login, JWT-based authentication, and password reset via email.' },
+            { area: 'RBAC', work: 'Role-Based Access Control with three roles: Admin, Instructor, and Student. Role/permission management via admin dashboard.' },
+            { area: 'User Profile', work: 'Profile editing, avatar upload, bio, skills, and phone number management.' },
+        ],
+    },
+    {
+        title: 'Product Management',
+        badge: null,
+        items: [
+            { area: 'Courses', work: 'CRUD for courses with hierarchical content: Course → Module → Lesson → Quiz. Each lesson supports video (URL), rich text, downloadable file attachments, and multiple-choice quizzes. Settings include level, release date, cover image, and pricing with original (strike-through) price.' },
+            { area: 'E-Books', work: 'CRUD for digital books with ISBN/EISBN tracking, download tokens with expiry time, and secured download flow.' },
+        ],
+    },
+    {
+        title: 'Learning Experience',
+        badge: null,
+        items: [
+            { area: 'Progress Tracking', work: 'Per-lesson completion tracking with automatic course completion percentage calculation and progress snapshot storage.' },
+            { area: 'Quiz System', work: 'Multiple-choice quizzes per lesson: attempt tracking, auto-scoring, answer correction, and quiz result history.' },
+            { area: 'Module Discussion', work: 'Students can post questions within course modules. Nested comments (depth-tracked) with instructor responses and recent activity feed.' },
+        ],
+    },
+    {
+        title: 'Payments & Orders',
+        badge: null,
+        items: [
+            { area: 'Order System', work: 'Multi-product order creation and tracking with unique order codes. Statuses: pending, paid, failed, expired, cancelled.' },
+            { area: 'Midtrans Integration', work: 'Snap token generation for payment UI, webhook for async payment status updates, fraud detection, transaction type/method tracking, and settlement confirmation.' },
+        ],
+    },
+    {
+        title: 'CMS & Content Features',
+        badge: null,
+        items: [
+            { area: 'Articles & Blog', work: 'CRUD with Quill rich text editor, hierarchical categories (parent/child), featured flag, sort order, view count, publish/draft status, SEO meta tags, and slug URLs.' },
+            { area: 'Reviews & Social', work: '1–5 star product reviews with average rating, nested product comments, and wishlist (add/remove for courses and e-books).' },
+            { area: 'SEO & Sitemap', work: 'Dynamic Open Graph meta tags for articles, e-books, and courses. Auto-generated XML sitemap and clean slug-based URLs.' },
+        ],
+    },
+    {
+        title: 'Admin Dashboard & Support',
+        badge: null,
+        items: [
+            { area: 'Admin Panel', work: 'Full CRUD management for users (with role assignment), courses, modules, lessons, e-books, articles, orders, payments, instructors, and support tickets.' },
+            { area: 'Support Tickets', work: 'Users submit tickets with title and description. Bi-directional comments (user ↔ admin), admin-only threads, nested comments, and status tracking (pending/resolved).' },
+            { area: 'Notifications & Logging', work: 'Admin notifications for new user registrations, paid orders, and new support tickets (read/unread). Error 500 logging with status code, response data, and admin access for debugging.' },
+        ],
+    },
+    {
+        title: 'Infrastructure & Deployment',
+        badge: null,
+        items: [
+            { area: 'File Storage', work: 'Cloudflare R2 (S3-compatible) for object storage. Presigned URLs for secure file serving. Download tokens with expiry for course lessons and e-books.' },
+            { area: 'Deployment', work: 'Docker + docker-compose for dev and production environments. Nginx configuration for production. Environment via .env (database, JWT, R2, SMTP, Midtrans, Google OAuth). Make commands for migrations, seeding, and development.' },
+        ],
+    },
+];
+
 const kledoCategories = [
     {
         title: 'Reporting (Finance Reports)',
@@ -230,9 +293,9 @@ const kominfoProjects = [
                     <img src="/dino-ava.jpg" alt="Dino Baggio" class="avatar-img" />
                     <div>
                         <h1 class="doc-name">Dino Baggio</h1>
-                        <p class="doc-sub">Software Engineer · Fullstack Developer</p>
+                        <p class="doc-sub">Software Engineer · Fullstack Developer · Prompt Engineer</p>
                         <p class="doc-sub" style="margin-top:2px; font-size:0.72rem; opacity:0.7;">
-                            dbaggio111@gmail.com &nbsp;·&nbsp; github.com/dinobaggio &nbsp;·&nbsp; linkedin.com/in/dino-baggio-877686143
+                            dbaggio111@gmail.com &nbsp;·&nbsp; linkedin.com/in/dino-baggio-877686143
                         </p>
                     </div>
                 </div>
@@ -240,7 +303,7 @@ const kominfoProjects = [
             </div>
 
             <!-- ════ KLEDO ════ -->
-            <div class="company-section print-page-start">
+            <div class="company-section">
                 <div class="company-header kledo-header">
                     <div class="company-logo-wrap">
                         <img src="/kledo-logo.png" alt="Kledo" class="company-logo kledo-logo" />
@@ -257,6 +320,11 @@ const kominfoProjects = [
                     Primary focus on the <strong>Finance Reporting module</strong> — the largest workload — covering accounts receivable/payable aging, profit & loss, sales detail, purchase per product, inventory turnover, stock movement, and several new reports. Complemented by <strong>Midtrans & Billing integration</strong>, <strong>notification & email systems</strong>, a major <strong>CRM Subscription</strong> project, and consistent maintenance (Sentry, CI/CD, unit tests).
                 </div>
 
+                <div class="becourse-tech-row">
+                    <span class="becourse-tech-label" style="color: #c2410c;">Tech Stack:</span>
+                    <span class="becourse-tech-val">PHP · Laravel · MySQL · ClickHouse · Redis</span>
+                </div>
+
                 <!-- Category tables -->
                 <div class="kledo-categories">
                     <div class="kledo-cat" v-for="cat in kledoCategories" :key="cat.title">
@@ -266,6 +334,41 @@ const kominfoProjects = [
                         </div>
                         <div class="kledo-row" v-for="item in cat.items" :key="item.area">
                             <div class="kledo-area">{{ item.area }}</div>
+                            <div class="kledo-desc">{{ item.work }}</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ════ BECOURSE ════ -->
+            <div class="company-section print-page-start">
+                <div class="company-header becourse-header">
+                    <div class="company-logo-wrap white-bg-logo">
+                        <img src="/logo-becourse.png" alt="Becourse" class="company-logo becourse-logo" />
+                    </div>
+                    <div>
+                        <div class="company-name">PT Becourse Rintis Optima</div>
+                        <div class="company-meta">Fullstack Developer · Prompt Engineer &nbsp;·&nbsp; Apr 2026 – Present</div>
+                    </div>
+                    <div class="project-count">{{ becourseCategories.length }} Categories</div>
+                </div>
+
+                <div class="becourse-summary">
+                    Full-stack e-learning & digital product marketplace platform built as a <strong>monorepo</strong> — Go REST API backend, React + TypeScript user frontend, and React + TypeScript admin dashboard. Covers the entire product lifecycle: user auth, course/e-book management, learning progress, Midtrans payments, CMS, admin panel, and Cloudflare R2 file storage.
+                </div>
+
+                <div class="becourse-tech-row">
+                    <span class="becourse-tech-label">Tech Stack:</span>
+                    <span class="becourse-tech-val">Go · MySQL (Goose migrations) · React 19 · TypeScript · Vite · Tailwind CSS 4 · Redux Toolkit · Cloudflare R2 · Midtrans · JWT · Google OAuth</span>
+                </div>
+
+                <div class="kledo-categories" style="margin-top: 0.5rem;">
+                    <div class="kledo-cat becourse-cat" v-for="cat in becourseCategories" :key="cat.title">
+                        <div class="kledo-cat-header becourse-cat-header">
+                            <span class="kledo-cat-title becourse-cat-title">{{ cat.title }}</span>
+                        </div>
+                        <div class="kledo-row" v-for="item in cat.items" :key="item.area">
+                            <div class="kledo-area becourse-area">{{ item.area }}</div>
                             <div class="kledo-desc">{{ item.work }}</div>
                         </div>
                     </div>
@@ -554,6 +657,7 @@ const kominfoProjects = [
     padding: 1rem 2rem;
     flex-wrap: wrap;
 }
+.becourse-header{ background: #f0fdfa; border-bottom: 1px solid #99f6e4; }
 .kledo-header  { background: #fff7ed; border-bottom: 1px solid #fed7aa; }
 .badr-header   { background: #eff6ff; border-bottom: 1px solid #dbeafe; }
 .nusa-header   { background: #f0fdf4; border-bottom: 1px solid #bbf7d0; }
@@ -571,6 +675,7 @@ const kominfoProjects = [
 }
 .white-bg-logo { background: white; border: 1px solid #e2e8f0; }
 .company-logo  { height: 32px; object-fit: contain; }
+.becourse-logo { height: 28px; }
 .nusa-logo     { height: 24px; }
 .kledo-logo    { height: 28px; }
 .kominfo-logo  { height: 44px; }
@@ -696,6 +801,28 @@ const kominfoProjects = [
 .kledo-tag   { background: #ffedd5; color: #c2410c; }
 
 /* ── Kledo category table layout ── */
+.becourse-summary {
+    margin: 0.75rem 1.5rem 0;
+    padding: 0.625rem 0.875rem;
+    background: #f0fdfa;
+    border-left: 3px solid #14b8a6;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    line-height: 1.6;
+    color: #134e4a;
+}
+.becourse-summary strong { color: #0f766e; }
+.becourse-tech-row {
+    margin: 0.4rem 1.5rem 0;
+    font-size: 0.72rem;
+    color: #64748b;
+}
+.becourse-tech-label { font-weight: 700; color: #1e293b; margin-right: 0.3rem; }
+.becourse-tech-val { color: #475569; }
+.becourse-cat .kledo-cat-header { background: #f0fdfa; border-bottom: 1px solid #99f6e4; }
+.becourse-cat-title { color: #0f766e !important; }
+.becourse-area { color: #0d4f3d !important; background: #f0fdfa !important; }
+
 .kledo-summary {
     margin: 0.75rem 1.5rem 0;
     padding: 0.625rem 0.875rem;
@@ -766,6 +893,23 @@ const kominfoProjects = [
 .sneak-tag   { background: #ede9fe; color: #5b21b6; }
 .kominfo-tag { background: #dcfce7; color: #166534; }
 
+/* ── Mobile ── */
+@media (max-width: 640px) {
+    .top-bar { padding: 0.75rem 1rem; }
+    .print-btn { padding: 0.5rem 1rem; font-size: 0.8rem; }
+    .doc-header { padding: 1rem; gap: 0.75rem; flex-wrap: wrap; }
+    .avatar-img { width: 52px; height: 52px; }
+    .doc-name { font-size: 1.1rem; }
+    .company-header { padding: 0.75rem 1rem; }
+    .projects-grid { grid-template-columns: 1fr; margin: 0.75rem 0.75rem 0; }
+    .kledo-summary, .becourse-summary { margin: 0.5rem 0.75rem 0; }
+    .becourse-tech-row { margin: 0.4rem 0.75rem 0; }
+    .kledo-categories { margin: 0.5rem 0.75rem 0.5rem; }
+    .kledo-row { grid-template-columns: 1fr; }
+    .kledo-area { border-right: none; border-bottom: 1px solid #f1f5f9; }
+    .becourse-area { border-right: none !important; border-bottom: 1px solid #e2e8f0 !important; }
+}
+
 /* ── Print ── */
 @media print {
     .no-print { display: none !important; }
@@ -803,6 +947,19 @@ const kominfoProjects = [
         print-color-adjust: exact;
     }
     .project-card { break-inside: avoid; }
+    .becourse-summary {
+        margin: 0.5rem 1.25rem 0 !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .becourse-cat .kledo-cat-header {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+    .becourse-area {
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
     .kledo-summary {
         margin: 0.5rem 1.25rem 0 !important;
         -webkit-print-color-adjust: exact;

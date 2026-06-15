@@ -102,4 +102,8 @@ const techStack = ['PHP', 'Laravel', 'NodeJS', 'ExpressJS', 'Sequelize', 'ReactJ
 .view-link:hover {
     color: #0ea5e9;
 }
+@media (max-width: 480px) {
+    .exp-card { padding: 1rem; }
+    .logo-wrap { width: 100%; min-width: unset; justify-content: flex-start; height: 48px; }
+}
 </style>

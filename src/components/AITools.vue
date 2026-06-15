@@ -8,9 +8,9 @@ const tools = [
 
 <template>
     <div class="section">
-        <div class="container-page py-16">
+        <div class="container-page py-10 sm:py-16">
             <div class="text-center mb-12">
-                <div class="text-h3 font-bold">AI Coding Assistant</div>
+                <div class="text-h5 sm:text-h3 font-bold">AI Coding Assistant</div>
                 <div class="accent-line" />
             </div>
             <div class="tools-grid">
@@ -38,7 +38,7 @@ const tools = [
 }
 .tools-grid {
     display: grid;
-    grid-template-columns: repeat(3, 150px);
+    grid-template-columns: repeat(auto-fit, minmax(130px, 150px));
     gap: 1rem;
     justify-content: center;
     margin: 0 auto;

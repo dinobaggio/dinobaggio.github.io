@@ -1,5 +1,6 @@
 <script setup>
 import Kledo from './experience/Kledo.vue';
+import Becourse from './experience/Becourse.vue';
 import Badr from './experience/Badr.vue'
 import Nusantech from './experience/Nusantech.vue';
 import Seneakershoot from './experience/Seneakershoot.vue';
@@ -8,13 +9,14 @@ import Kominfo from './experience/Kominfo.vue';
 
 <template>
     <div class="section">
-        <div id="experience" class="container-page py-16">
+        <div id="experience" class="container-page py-10 sm:py-16">
             <div class="text-center mb-12">
-                <div class="text-h3 font-bold" style="color: #1e293b;">Experience</div>
+                <div class="text-h5 sm:text-h3 font-bold" style="color: #1e293b;">Experience</div>
                 <div class="accent-line" />
             </div>
             <div class="flex flex-col gap-5">
                 <Kledo />
+                <Becourse />
                 <Badr />
                 <Nusantech />
                 <Seneakershoot />

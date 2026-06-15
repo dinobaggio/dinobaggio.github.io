@@ -18,19 +18,19 @@ const years = now.getFullYear() - startYear - (now.getMonth() + 1 < startMonth ?
         <div class="container mx-auto 2xl:px-36 px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="avatar-sm" />
-                <div class="flex items-center gap-6">
-                    <button class="nav-link" @click="goToElement('experience')">Experience</button>
-                    <button class="nav-link" @click="goToElement('skill')">Skill</button>
-                    <button class="nav-link" @click="goToElement('contact')">Contact</button>
+                <div class="flex items-center gap-3 sm:gap-6">
+                    <button class="nav-link hidden sm:block" @click="goToElement('experience')">Experience</button>
+                    <button class="nav-link hidden sm:block" @click="goToElement('skill')">Skill</button>
+                    <button class="nav-link hidden sm:block" @click="goToElement('contact')">Contact</button>
                     <router-link to="/cv" class="nav-cv-btn">CV</router-link>
-                    <router-link to="/portfolio-print" class="nav-cv-btn nav-port-btn">Portfolio PDF</router-link>
+                    <router-link to="/portfolio-print" class="nav-cv-btn nav-port-btn hidden sm:inline-flex">Portfolio PDF</router-link>
                 </div>
             </div>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <div class="container-page pt-20 pb-28">
+    <div class="container-page pt-12 pb-16 sm:pt-20 sm:pb-28">
         <div class="flex flex-col items-center text-center">
             <!-- Avatar with gradient ring -->
             <div class="avatar-ring mb-6">
@@ -38,21 +38,21 @@ const years = now.getFullYear() - startYear - (now.getMonth() + 1 < startMonth ?
             </div>
 
             <!-- Name -->
-            <h1 class="text-h2 font-bold gradient-text">Dino Baggio</h1>
+            <h1 class="text-2xl sm:text-h3 md:text-h2 font-bold gradient-text">Dino Baggio</h1>
 
             <!-- Subtitle -->
-            <p class="text-h6 mt-2 font-medium subtitle-line">
+            <p class="text-sm sm:text-h6 mt-2 font-medium subtitle-line">
                 Software Engineer · Fullstack Developer · Prompt Engineer
             </p>
 
             <!-- Description -->
-            <p class="mt-6 text-p leading-relaxed max-w-xl" style="color: rgba(219, 234, 254, 0.8);">
+            <p class="mt-4 sm:mt-6 text-sm sm:text-p leading-relaxed max-w-xl" style="color: rgba(219, 234, 254, 0.8);">
                 Software engineer with {{ years }}+ years of experience in web development,
                 specializing in backend and frontend development across large-scale projects.
             </p>
 
             <!-- Role badges -->
-            <div class="flex flex-wrap gap-2 mt-6 justify-center">
+            <div class="flex flex-wrap gap-2 mt-4 sm:mt-6 justify-center">
                 <span class="role-badge">Backend Developer</span>
                 <span class="role-badge">Frontend Developer</span>
                 <span class="role-badge">Fast Learner</span>
@@ -60,7 +60,7 @@ const years = now.getFullYear() - startYear - (now.getMonth() + 1 < startMonth ?
             </div>
 
             <!-- CTA Buttons -->
-            <div class="flex flex-wrap gap-4 mt-10 justify-center">
+            <div class="flex flex-wrap gap-3 sm:gap-4 mt-8 sm:mt-10 justify-center">
                 <button @click="goToElement('experience')" class="btn-primary">View Experience</button>
                 <button @click="goToElement('contact')" class="btn-outline">Contact Me</button>
             </div>
@@ -124,9 +124,9 @@ const years = now.getFullYear() - startYear - (now.getMonth() + 1 < startMonth ?
     color: #bfdbfe;
 }
 .btn-primary {
-    padding: 0.75rem 1.75rem;
+    padding: 0.6rem 1.25rem;
     border-radius: 9999px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     font-family: inherit;
     cursor: pointer;
@@ -135,15 +135,18 @@ const years = now.getFullYear() - startYear - (now.getMonth() + 1 < startMonth ?
     border: none;
     transition: all 0.2s;
 }
+@media (min-width: 640px) {
+    .btn-primary { padding: 0.75rem 1.75rem; font-size: 1rem; }
+}
 .btn-primary:hover {
     background: #dbeafe;
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 .btn-outline {
-    padding: 0.75rem 1.75rem;
+    padding: 0.6rem 1.25rem;
     border-radius: 9999px;
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 600;
     font-family: inherit;
     cursor: pointer;
@@ -151,6 +154,9 @@ const years = now.getFullYear() - startYear - (now.getMonth() + 1 < startMonth ?
     color: white;
     border: 2px solid rgba(255, 255, 255, 0.4);
     transition: all 0.2s;
+}
+@media (min-width: 640px) {
+    .btn-outline { padding: 0.75rem 1.75rem; font-size: 1rem; }
 }
 .btn-outline:hover {
     background: rgba(255, 255, 255, 0.1);

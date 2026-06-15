@@ -11,14 +11,15 @@ const skills = [
     { name: 'Go Golang', src: '/golang-logo.png', bg: 'white' },
     { name: 'GIN', src: '/gin-logo.png', bg: 'white' },
     { name: 'Goose', src: '/goose-logo.png', bg: 'white' },
+    { name: 'Flutter', src: '/flutter-logo.png', bg: 'white' },
 ];
 </script>
 
 <template>
     <div class="section">
-        <div id="skill" class="container-page py-16">
+        <div id="skill" class="container-page py-10 sm:py-16">
             <div class="text-center mb-12">
-                <div class="text-h3 font-bold">Skills</div>
+                <div class="text-h5 sm:text-h3 font-bold">Skills</div>
                 <div class="accent-line" />
             </div>
             <div class="skills-grid">
