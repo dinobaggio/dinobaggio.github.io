@@ -5,6 +5,11 @@ function goToElement(elementId) {
         element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 }
+
+const startYear = 2018;
+const startMonth = 5; // May
+const now = new Date();
+const years = now.getFullYear() - startYear - (now.getMonth() + 1 < startMonth ? 1 : 0);
 </script>
 
 <template>
@@ -36,13 +41,13 @@ function goToElement(elementId) {
             <h1 class="text-h2 font-bold gradient-text">Dino Baggio</h1>
 
             <!-- Subtitle -->
-            <p class="text-h6 mt-2 font-medium" style="color: #93c5fd;">
-                Software Engineer · Fullstack Developer
+            <p class="text-h6 mt-2 font-medium subtitle-line">
+                Software Engineer · Fullstack Developer · Prompt Engineer
             </p>
 
             <!-- Description -->
             <p class="mt-6 text-p leading-relaxed max-w-xl" style="color: rgba(219, 234, 254, 0.8);">
-                Software engineer with 5+ years of experience in web development,
+                Software engineer with {{ years }}+ years of experience in web development,
                 specializing in backend and frontend development across large-scale projects.
             </p>
 
@@ -86,7 +91,7 @@ function goToElement(elementId) {
     border-radius: 9999px;
     width: 36px;
     height: 36px;
-    background-image: url('/avadino.jpg');
+    background-image: url('/dino-ava.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -99,7 +104,7 @@ function goToElement(elementId) {
     border-radius: 9999px;
     width: 140px;
     height: 140px;
-    background-image: url('/avadino.jpg');
+    background-image: url('/dino-ava.jpg');
     background-size: cover;
     background-position: center;
 }
@@ -164,6 +169,12 @@ function goToElement(elementId) {
 }
 .nav-cv-btn:hover {
     background: #dbeafe;
+}
+.subtitle-line {
+    background: linear-gradient(90deg, #93c5fd 0%, #93c5fd 55%, #fdba74 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 .nav-port-btn {
     background: rgba(255,255,255,0.15);

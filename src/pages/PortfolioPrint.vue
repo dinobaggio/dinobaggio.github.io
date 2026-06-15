@@ -227,7 +227,7 @@ const kominfoProjects = [
             <!-- Document Header -->
             <div class="doc-header">
                 <div class="header-left">
-                    <img src="/avadino.jpg" alt="Dino Baggio" class="avatar-img" />
+                    <img src="/dino-ava.jpg" alt="Dino Baggio" class="avatar-img" />
                     <div>
                         <h1 class="doc-name">Dino Baggio</h1>
                         <p class="doc-sub">Software Engineer · Fullstack Developer</p>

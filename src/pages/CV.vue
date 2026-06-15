@@ -6,6 +6,11 @@ function printCV() {
     window.print();
 }
 
+const startYear = 2018;
+const startMonth = 5; // May
+const now = new Date();
+const years = now.getFullYear() - startYear - (now.getMonth() + 1 < startMonth ? 1 : 0);
+
 const experiences = [
     {
         company: 'PT. Kledo Berhati Nyaman',
@@ -80,6 +85,12 @@ const skillGroups = [
     { label: 'Tools & Infra', skills: 'Redis, RabbitMQ, Minio, Docker, Nginx, Apache' },
     { label: 'ORM / Migration', skills: 'Sequelize, Gorm, Goose' },
 ];
+
+const aiTools = [
+    { name: 'Cursor', src: '/cursor-logo.png' },
+    { name: 'Claude', src: '/claude-logo.png' },
+    { name: 'GitHub Copilot', src: '/github-copilot-logo.png' },
+];
 </script>
 
 <template>
@@ -100,11 +111,11 @@ const skillGroups = [
             <!-- CV Header -->
             <div class="cv-header">
                 <div class="avatar-wrap">
-                    <img src="/avadino.jpg" alt="Dino Baggio" class="avatar-img" />
+                    <img src="/dino-ava.jpg" alt="Dino Baggio" class="avatar-img" />
                 </div>
                 <div class="header-info">
                     <h1 class="cv-name">Dino Baggio</h1>
-                    <p class="cv-title">Software Engineer · Fullstack Developer</p>
+                    <p class="cv-title">Software Engineer · Fullstack Developer · Prompt Engineer</p>
                     <div class="contact-row">
                         <a href="mailto:dbaggio111@gmail.com" class="contact-item">
                             <svg class="ci" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -134,7 +145,7 @@ const skillGroups = [
                 <section class="cv-section">
                     <h2 class="section-title">Professional Summary</h2>
                     <p class="summary-text">
-                        Software engineer with 5+ years of experience in web development, specializing in backend and frontend development across large-scale projects. Experienced in building and maintaining complex applications using a wide range of technologies including Node.js, PHP/Laravel, Go, and React/Vue. Awarded Best Employee 2020 at PT. Badr Interactive. Fast learner with a strong work ethic, capable of managing multiple projects simultaneously.
+                        Software engineer with {{ years }}+ years of experience in web development, specializing in backend and frontend development across large-scale projects. Experienced in building and maintaining complex applications using a wide range of technologies including Node.js, PHP/Laravel, Go, and React/Vue. Awarded Best Employee 2020 at PT. Badr Interactive. Fast learner with a strong work ethic, capable of managing multiple projects simultaneously.
                     </p>
                 </section>
 
@@ -168,6 +179,19 @@ const skillGroups = [
                         <div class="skill-row" v-for="group in skillGroups" :key="group.label">
                             <span class="skill-cat">{{ group.label }}</span>
                             <span class="skill-vals">{{ group.skills }}</span>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- AI Coding Assistant -->
+                <section class="cv-section">
+                    <h2 class="section-title">AI Coding Assistant</h2>
+                    <div class="ai-grid">
+                        <div class="ai-card" v-for="tool in aiTools" :key="tool.name">
+                            <div class="ai-icon-wrap">
+                                <img :src="tool.src" :alt="tool.name" class="ai-icon" />
+                            </div>
+                            <span class="ai-name">{{ tool.name }}</span>
                         </div>
                     </div>
                 </section>
@@ -390,6 +414,42 @@ const skillGroups = [
     color: #1e293b;
 }
 .skill-vals { color: #475569; }
+
+/* ── AI Coding Assistant ── */
+.ai-grid {
+    display: flex;
+    gap: 0.75rem;
+}
+.ai-card {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 0.875rem;
+    border-radius: 8px;
+    border: 1px solid #e2e8f0;
+    background: #f8fafc;
+}
+.ai-icon-wrap {
+    width: 28px;
+    height: 28px;
+    background: white;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #e2e8f0;
+    flex-shrink: 0;
+}
+.ai-icon {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+}
+.ai-name {
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: #1e293b;
+}
 
 /* ── Print styles ── */
 @media print {
