@@ -3,6 +3,9 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from './pages/Home.vue'
 import BadrPortofolio from './pages/portofolio/BadrPortofolio.vue'
 import NusantechPortofolio from './pages/portofolio/NusantechPortofolio.vue'
+import CV from './pages/CV.vue'
+import PortfolioPrint from './pages/PortfolioPrint.vue'
+import KledoPortofolio from './pages/portofolio/KledoPortofolio.vue'
 
 const router = createRouter({
   history: createWebHashHistory(),
@@ -18,6 +21,18 @@ const router = createRouter({
     path: '/nusantech-portofolio',
     name: 'NusantechPorotofolio',
     component: NusantechPortofolio
+  }, {
+    path: '/cv',
+    name: 'CV',
+    component: CV
+  }, {
+    path: '/kledo-portofolio',
+    name: 'KledoPortofolio',
+    component: KledoPortofolio
+  }, {
+    path: '/portfolio-print',
+    name: 'PortfolioPrint',
+    component: PortfolioPrint
   }],
 })
 

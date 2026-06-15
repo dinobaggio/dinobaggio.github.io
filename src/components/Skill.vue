@@ -1,65 +1,91 @@
 <script setup>
-
+const skills = [
+    { name: 'JavaScript', src: '/javascript-logo.png', bg: 'white' },
+    { name: 'NodeJS', src: '/nodejs-logo.png', bg: 'white' },
+    { name: 'ExpressJS', src: '/expressjs-logo.png', bg: 'white' },
+    { name: 'ReactJS', src: '/react-logo.png', bg: 'white' },
+    { name: 'VueJS', src: '/vuejs-logo.png', bg: 'white' },
+    { name: 'Vite', src: '/vite.svg', bg: 'white' },
+    { name: 'PHP', src: '/php-logo.png', bg: 'white' },
+    { name: 'Laravel', src: '/laravel-logo.png', bg: 'white' },
+    { name: 'Go Golang', src: '/golang-logo.png', bg: 'white' },
+    { name: 'GIN', src: '/gin-logo.png', bg: 'white' },
+    { name: 'Goose', src: '/goose-logo.png', bg: 'white' },
+];
 </script>
 
 <template>
     <div class="section">
-        <div id="skill" class="container-page">
-            <div class="text-h3 text-center font-bold">Skill</div>
-            <div class="mt-12 grid grid-cols-4 gap-2 items-center justify-items-center">
-                <img title="javascript" alt="javascript" src="/javascript-logo.png" width="50px" />
-                <div title="nodejs" style="width: 52px; height: 52px; background-color: white;" class="rounded items-center justify-items-center flex">
-                    <img title="nodejs" alt="nodejs" src="/nodejs-logo.png" width="50px" class="mx-auto" />
-                </div>
-                <div title="expressjs" style="width: 52px; height: 52px; background-color: white;" class="rounded items-center justify-items-center flex">
-                    <img title="expressjs" alt="expressjs" src="/expressjs-logo.png" width="50px" class="mx-auto" />
-                </div>
-                <div title="reactjs" style="width: 52px; height: 52px; background-color: white;" class="rounded items-center justify-items-center flex">
-                    <img title="reactjs" alt="reactjs" src="/react-logo.png" width="50px" class="mx-auto" />
-                </div>
-                <div>JavaScript</div>
-                <div>NodeJS</div>
-                <div>ExpressJS</div>
-                <div>ReactJS</div>
+        <div id="skill" class="container-page py-16">
+            <div class="text-center mb-12">
+                <div class="text-h3 font-bold">Skills</div>
+                <div class="accent-line" />
             </div>
-            <div class="mt-4 grid grid-cols-4 gap-2 items-center justify-items-center">
-                <div title="vuejs" style="width: 52px; height: 52px; background-color: white;" class="rounded items-center justify-items-center flex">
-                    <img title="vuejs" alt="vuejs" src="/vuejs-logo.png" width="50px" class="mx-auto" />
+            <div class="skills-grid">
+                <div class="skill-card" v-for="skill in skills" :key="skill.name">
+                    <div class="icon-wrap">
+                        <img :src="skill.src" :alt="skill.name" :title="skill.name" class="skill-icon" />
+                    </div>
+                    <span class="skill-name">{{ skill.name }}</span>
                 </div>
-                <img title="vite" alt="vite" src="/vite.svg" width="50px" class="mx-auto" />
-                <img title="php" alt="php" src="/php-logo.png" width="50px" class="mx-auto" />
-                <img title="laravel" alt="laravel" src="/laravel-logo.png" width="50px" class="mx-auto" />
-                <div>VueJS</div>
-                <div>Vite</div>
-                <div>PHP</div>
-                <div>Laravel</div>
             </div>
-            <div class="mt-4 grid grid-cols-4 gap-2 items-center justify-items-center">
-                <img title="golang" alt="golang" src="/golang-logo.png" width="50px" class="mx-auto" />
-                <img title="gin" alt="gin" src="/gin-logo.png" width="50px" class="mx-auto" />
-                <img title="goose" alt="goose" src="/goose-logo.png" width="50px" class="mx-auto" />
-                <div />
-                <div>Go Golang</div>
-                <div>GIN</div>
-                <div>Goose</div>
-                <div />
-            </div>
-            <div class="pb-4" />
         </div>
     </div>
 </template>
 
-<!-- <div>NextJS</div>
-                <div>VueJS</div>
-                <div>Vite</div>
-                <div>PHP</div>
-                <div>Laravel</div>
-                <div>Go (golang)</div>
-                <div>Gin</div> -->
-
 <style scoped>
 .section {
-    /* background-color: white;
-    color: black; */
+    padding: 0;
+}
+.accent-line {
+    width: 56px;
+    height: 4px;
+    border-radius: 2px;
+    margin: 0.75rem auto 0;
+    background: linear-gradient(to right, #93c5fd, #e0e7ff);
+}
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 1rem;
+    max-width: 860px;
+    margin: 0 auto;
+}
+.skill-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.625rem;
+    padding: 1.25rem 0.75rem;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    cursor: default;
+    transition: background 0.2s, transform 0.2s;
+}
+.skill-card:hover {
+    background: rgba(255, 255, 255, 0.14);
+    transform: translateY(-3px);
+}
+.icon-wrap {
+    width: 52px;
+    height: 52px;
+    background: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+}
+.skill-icon {
+    width: 44px;
+    height: 44px;
+    object-fit: contain;
+}
+.skill-name {
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-align: center;
+    color: #bfdbfe;
 }
 </style>
