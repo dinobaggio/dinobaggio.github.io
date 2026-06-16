@@ -41,7 +41,7 @@ const years = now.getFullYear() - startYear - (now.getMonth() + 1 < startMonth ?
             <h1 class="text-2xl sm:text-h3 md:text-h2 font-bold gradient-text">Dino Baggio</h1>
 
             <!-- Subtitle -->
-            <p class="text-sm sm:text-h6 mt-2 font-medium subtitle-line">
+            <p class="text-sm sm:text-h6 mt-6 sm:mt-8 font-medium subtitle-line">
                 Software Engineer · Fullstack Developer · Prompt Engineer
             </p>
 
@@ -109,10 +109,8 @@ const years = now.getFullYear() - startYear - (now.getMonth() + 1 < startMonth ?
     background-position: center;
 }
 .gradient-text {
-    background: linear-gradient(135deg, #ffffff 40%, #93c5fd);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: white;
+    text-shadow: 0 0 40px rgba(147, 197, 253, 0.35);
 }
 .role-badge {
     padding: 0.25rem 1rem;
