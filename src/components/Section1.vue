@@ -179,6 +179,7 @@ const years = now.getFullYear() - startYear - (now.getMonth() + 1 < startMonth ?
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    padding-bottom: 0.15em;
 }
 .nav-port-btn {
     background: rgba(255,255,255,0.15);
